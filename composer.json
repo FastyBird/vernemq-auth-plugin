@@ -35,7 +35,7 @@
   "minimum-stability" : "dev",
 
   "require" : {
-    "php": ">=7.3.0",
+    "php": ">=7.4.0",
     "contributte/console": "^0.8",
     "contributte/translation": "^0.8",
     "fastybird/database": "@dev",

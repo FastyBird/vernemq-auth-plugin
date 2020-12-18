@@ -26,8 +26,7 @@ use FastyBird\VerneMqAuthPlugin\Models;
 use FastyBird\VerneMqAuthPlugin\Queries;
 use FastyBird\VerneMqAuthPlugin\Types;
 use Nette\Utils;
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
+use Psr\Log;
 use stdClass;
 use Symfony\Component\Console;
 use Symfony\Component\Console\Input;
@@ -47,43 +46,43 @@ class SynchroniseCommand extends Console\Command\Command
 {
 
 	/** @var DevicesModuleModels\Devices\IDeviceRepository */
-	private $deviceRepository;
+	private DevicesModuleModels\Devices\IDeviceRepository $deviceRepository;
 
 	/** @var Models\Accounts\IAccountRepository */
-	private $verneAccountRepository;
+	private Models\Accounts\IAccountRepository $accountRepository;
 
 	/** @var Models\Accounts\IAccountsManager */
-	private $verneAccountsManager;
+	private Models\Accounts\IAccountsManager $accountsManager;
 
 	/** @var Common\Persistence\ManagerRegistry */
-	private $managerRegistry;
+	private Common\Persistence\ManagerRegistry $managerRegistry;
 
-	/** @var LoggerInterface */
-	private $logger;
+	/** @var Log\LoggerInterface */
+	private Log\LoggerInterface $logger;
 
 	/** @var Translation\PrefixedTranslator */
-	private $translator;
+	private Translation\PrefixedTranslator $translator;
 
 	/** @var string */
-	private $translationDomain = 'node.commands.sync';
+	private string $translationDomain = 'commands.sync';
 
 	public function __construct(
 		DevicesModuleModels\Devices\IDeviceRepository $deviceRepository,
-		Models\Accounts\IAccountRepository $verneAccountRepository,
-		Models\Accounts\IAccountsManager $verneAccountsManager,
+		Models\Accounts\IAccountRepository $accountRepository,
+		Models\Accounts\IAccountsManager $accountsManager,
 		Translation\Translator $translator,
 		Common\Persistence\ManagerRegistry $managerRegistry,
-		?LoggerInterface $logger = null,
+		?Log\LoggerInterface $logger = null,
 		?string $name = null
 	) {
 		// Modules models
 		$this->deviceRepository = $deviceRepository;
-		$this->verneAccountRepository = $verneAccountRepository;
-		$this->verneAccountsManager = $verneAccountsManager;
+		$this->accountRepository = $accountRepository;
+		$this->accountsManager = $accountsManager;
 
 		$this->managerRegistry = $managerRegistry;
 
-		$this->logger = $logger ?? new NullLogger();
+		$this->logger = $logger ?? new Log\NullLogger();
 
 		$this->translator = new Translation\PrefixedTranslator($translator, $this->translationDomain);
 
@@ -125,7 +124,7 @@ class SynchroniseCommand extends Console\Command\Command
 			$findAccount = new Queries\FindAccountQuery();
 			$findAccount->forDevice($device);
 
-			$account = $this->verneAccountRepository->findOneBy($findAccount);
+			$account = $this->accountRepository->findOneBy($findAccount);
 
 			if ($account !== null) {
 				$update = Utils\ArrayHash::from([
@@ -138,7 +137,7 @@ class SynchroniseCommand extends Console\Command\Command
 					$this->getOrmConnection()
 						->beginTransaction();
 
-					$this->verneAccountsManager->update($account, $update);
+					$this->accountsManager->update($account, $update);
 
 					// Commit all changes into database
 					$this->getOrmConnection()
@@ -186,7 +185,7 @@ class SynchroniseCommand extends Console\Command\Command
 					$this->getOrmConnection()
 						->beginTransaction();
 
-					$account = $this->verneAccountsManager->create($create);
+					$account = $this->accountsManager->create($create);
 
 					// Commit all changes into database
 					$this->getOrmConnection()

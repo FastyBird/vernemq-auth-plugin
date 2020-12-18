@@ -41,19 +41,19 @@ class CreateCommand extends Console\Command\Command
 {
 
 	/** @var Models\Accounts\IAccountsManager */
-	private $accountsManager;
+	private Models\Accounts\IAccountsManager $accountsManager;
 
 	/** @var Common\Persistence\ManagerRegistry */
-	private $managerRegistry;
+	private Common\Persistence\ManagerRegistry $managerRegistry;
 
 	/** @var Log\LoggerInterface */
-	private $logger;
+	private Log\LoggerInterface $logger;
 
 	/** @var Translation\PrefixedTranslator */
-	private $translator;
+	private Translation\PrefixedTranslator $translator;
 
 	/** @var string */
-	private $translationDomain = 'node.commands.create';
+	private string $translationDomain = 'commands.create';
 
 	public function __construct(
 		Models\Accounts\IAccountsManager $accountsManager,

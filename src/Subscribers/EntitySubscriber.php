@@ -39,7 +39,7 @@ final class EntitySubscriber implements Common\EventSubscriber
 	use Nette\SmartObject;
 
 	/** @var Models\Accounts\IAccountRepository */
-	private $accountRepository;
+	private Models\Accounts\IAccountRepository $accountRepository;
 
 	public function __construct(
 		Models\Accounts\IAccountRepository $accountRepository

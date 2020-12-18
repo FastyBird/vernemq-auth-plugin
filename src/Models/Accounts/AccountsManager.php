@@ -35,7 +35,7 @@ final class AccountsManager implements IAccountsManager
 	use Nette\SmartObject;
 
 	/** @var Crud\IEntityCrud */
-	private $entityCrud;
+	private Crud\IEntityCrud $entityCrud;
 
 	public function __construct(
 		Crud\IEntityCrud $entityCrud

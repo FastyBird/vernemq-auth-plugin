@@ -17,28 +17,27 @@
 # COMMANDS
 #
 
-commands:
-	create:
-		inputs:
-			username:
-				title	: "Username?"
-			password:
-				title	: "User default password?"
-			clientId:
-				title	: "User client id?"
-			role:
-				title	: "User access role?"
-				values:
-					user		: "Regular user"
-					manager		: "System manager"
-					device	    : "Device"
+create:
+    inputs:
+        username:
+            title	: "Username?"
+        password:
+            title	: "User default password?"
+        clientId:
+            title	: "User client id?"
+        role:
+            title	: "User access role?"
+            values:
+                user		: "Regular user"
+                manager		: "System manager"
+                device	    : "Device"
 
-		validation:
-			account:
-				wasNotCreated	: "Account could not be created. Error was logged."
+    validation:
+        account:
+            wasNotCreated	: "Account could not be created. Error was logged."
 
-		success: "Account \"%name%\" was successfully saved."
+    success: "Account \"%name%\" was successfully saved."
 
-	sync:
-		validation:
-			notFinished	: "Synchronisation could not be finished: %s"
+sync:
+    validation:
+        notFinished	: "Synchronisation could not be finished: %s"

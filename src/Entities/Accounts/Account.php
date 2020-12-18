@@ -54,7 +54,7 @@ class Account implements IAccount
 	 * @ORM\Column(type="uuid_binary", name="account_id")
 	 * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
 	 */
-	protected $id;
+	protected Uuid\UuidInterface $id;
 
 	/**
 	 * @var string
@@ -62,7 +62,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="string", name="mountpoint", length=10, nullable=false, options={"default": ""})
 	 */
-	private $mountpoint;
+	private string $mountpoint;
 
 	/**
 	 * @var string
@@ -70,7 +70,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="string", name="client_id", length=128, nullable=false, options={"default": ""})
 	 */
-	private $clientId;
+	private string $clientId;
 
 	/**
 	 * @var string
@@ -78,7 +78,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is={"required", "writable"})
 	 * @ORM\Column(type="string", name="username", length=128, nullable=false)
 	 */
-	private $username;
+	private string $username;
 
 	/**
 	 * @var string
@@ -86,7 +86,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is={"required", "writable"})
 	 * @ORM\Column(type="string", name="password", length=128, nullable=false)
 	 */
-	private $password;
+	private string $password;
 
 	/**
 	 * @var mixed[]
@@ -94,7 +94,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="json", name="publish_acl", nullable=true)
 	 */
-	private $publishAcl = [];
+	private array $publishAcl = [];
 
 	/**
 	 * @var mixed[]
@@ -102,7 +102,7 @@ class Account implements IAccount
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="json", name="subscribe_acl", nullable=true)
 	 */
-	private $subscribeAcl = [];
+	private array $subscribeAcl = [];
 
 	/**
 	 * @var Types\AccountType
@@ -120,7 +120,7 @@ class Account implements IAccount
 	 * @ORM\OneToOne(targetEntity="FastyBird\DevicesModule\Entities\Devices\NetworkDevice")
 	 * @ORM\JoinColumn(name="device_id", referencedColumnName="device_id", onDelete="CASCADE")
 	 */
-	private $device;
+	private ?DevicesModuleEntities\Devices\INetworkDevice $device = null;
 
 	/**
 	 * @param string $username
