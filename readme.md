@@ -1,4 +1,4 @@
-# FastyBird Verne MQ auth plugin library
+# FastyBird Verne MQ auth plugin
 
 [![Build Status](https://img.shields.io/travis/com/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://travis-ci.com/FastyBird/vernemq-auth-plugin)
 [![Code coverage](https://img.shields.io/coveralls/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://coveralls.io/r/FastyBird/vernemq-auth-plugin)
@@ -8,9 +8,9 @@
 [![Latest stable](https://img.shields.io/packagist/v/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
-## What is FastyBird Verne MQ auth plugin library?
+## What is FastyBird Verne MQ auth plugin?
 
-This is a [Nette framework](https://nette.org) extension which is implementing [Verne MQ](https://vernemq.com) [database authentication](https://docs.vernemq.com/configuration/db-auth) [FastyBird](https://www.fastybird.com) IoT services
+This is a [Nette framework](https://nette.org) extension which is implementing [Verne MQ](https://vernemq.com) [database authentication](https://docs.vernemq.com/configuration/db-auth) for [FastyBird](https://www.fastybird.com) IoT services
 
 ## Installation
 
