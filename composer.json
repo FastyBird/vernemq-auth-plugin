@@ -39,7 +39,6 @@
     "contributte/console": "^0.8",
     "contributte/translation": "^0.8",
     "fastybird/database": "@dev",
-    "fastybird/devices-module": "@dev",
     "fastybird/json-api": "@dev",
     "fastybird/simple-auth": "@dev",
     "fastybird/web-server": "@dev",

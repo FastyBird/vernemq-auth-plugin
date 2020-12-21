@@ -5,7 +5,6 @@ namespace Tests\Cases;
 use FastyBird\VerneMqAuthPlugin;
 use FastyBird\VerneMqAuthPlugin\Commands;
 use FastyBird\VerneMqAuthPlugin\Models;
-use FastyBird\VerneMqAuthPlugin\Subscribers;
 use Nette;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -23,12 +22,9 @@ final class ExtensionTest extends BaseMockeryTestCase
 		$container = $this->createContainer();
 
 		Assert::notNull($container->getByType(Commands\Accounts\CreateCommand::class));
-		Assert::notNull($container->getByType(Commands\SynchroniseCommand::class));
 
 		Assert::notNull($container->getByType(Models\Accounts\AccountsManager::class));
 		Assert::notNull($container->getByType(Models\Accounts\AccountRepository::class));
-
-		Assert::notNull($container->getByType(Subscribers\EntitySubscriber::class));
 	}
 
 	/**

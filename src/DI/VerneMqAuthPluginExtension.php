@@ -20,7 +20,6 @@ use Doctrine\Persistence;
 use FastyBird\VerneMqAuthPlugin\Commands;
 use FastyBird\VerneMqAuthPlugin\Entities;
 use FastyBird\VerneMqAuthPlugin\Models;
-use FastyBird\VerneMqAuthPlugin\Subscribers;
 use IPub\DoctrineCrud;
 use Nette;
 use Nette\DI;
@@ -66,9 +65,6 @@ class VerneMqAuthPluginExtension extends DI\CompilerExtension implements Transla
 		$builder->addDefinition(null)
 			->setType(Commands\Accounts\CreateCommand::class);
 
-		$builder->addDefinition(null)
-			->setType(Commands\SynchroniseCommand::class);
-
 		// Database repositories
 		$builder->addDefinition(null)
 			->setType(Models\Accounts\AccountRepository::class);
@@ -77,10 +73,6 @@ class VerneMqAuthPluginExtension extends DI\CompilerExtension implements Transla
 		$builder->addDefinition($this->prefix('doctrine.accountsManager'))
 			->setType(Models\Accounts\AccountsManager::class)
 			->setArgument('entityCrud', '__placeholder__');
-
-		// Event subscribers
-		$builder->addDefinition(null)
-			->setType(Subscribers\EntitySubscriber::class);
 	}
 
 	/**

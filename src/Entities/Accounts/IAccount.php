@@ -16,7 +16,6 @@
 namespace FastyBird\VerneMqAuthPlugin\Entities\Accounts;
 
 use FastyBird\Database\Entities as DatabaseEntities;
-use FastyBird\DevicesModule\Entities as DevicesModuleEntities;
 use FastyBird\VerneMqAuthPlugin\Types;
 use IPub\DoctrineTimestampable;
 
@@ -123,17 +122,5 @@ interface IAccount extends DatabaseEntities\IEntity,
 	 * @return mixed[]
 	 */
 	public function getSubscribeAcl(): array;
-
-	/**
-	 * @return DevicesModuleEntities\Devices\INetworkDevice|null
-	 */
-	public function getDevice(): ?DevicesModuleEntities\Devices\INetworkDevice;
-
-	/**
-	 * @param DevicesModuleEntities\Devices\INetworkDevice|null $device
-	 *
-	 * @return void
-	 */
-	public function setDevice(?DevicesModuleEntities\Devices\INetworkDevice $device): void;
 
 }

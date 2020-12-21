@@ -17,7 +17,6 @@ namespace FastyBird\VerneMqAuthPlugin\Queries;
 
 use Closure;
 use Doctrine\ORM;
-use FastyBird\DevicesModule\Entities as DevicesModuleEntities;
 use FastyBird\VerneMqAuthPlugin\Entities;
 use IPub\DoctrineOrmQuery;
 use Ramsey\Uuid;
@@ -63,22 +62,6 @@ class FindAccountQuery extends DoctrineOrmQuery\QueryObject
 	{
 		$this->filter[] = function (ORM\QueryBuilder $qb) use ($username): void {
 			$qb->andWhere('a.username = :username')->setParameter('username', $username);
-		};
-	}
-
-	/**
-	 * @param DevicesModuleEntities\Devices\IDevice $device
-	 *
-	 * @return void
-	 */
-	public function forDevice(DevicesModuleEntities\Devices\IDevice $device): void
-	{
-		$this->select[] = function (ORM\QueryBuilder $qb): void {
-			$qb->join('a.device', 'device');
-		};
-
-		$this->filter[] = function (ORM\QueryBuilder $qb) use ($device): void {
-			$qb->andWhere('device.id = :device')->setParameter('device', $device->getId(), Uuid\Doctrine\UuidBinaryType::NAME);
 		};
 	}
 

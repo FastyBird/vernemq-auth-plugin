@@ -18,7 +18,6 @@ namespace FastyBird\VerneMqAuthPlugin\Entities\Accounts;
 use Consistence\Doctrine\Enum\EnumAnnotation as Enum;
 use Doctrine\ORM\Mapping as ORM;
 use FastyBird\Database\Entities as DatabaseEntities;
-use FastyBird\DevicesModule\Entities as DevicesModuleEntities;
 use FastyBird\VerneMqAuthPlugin\Types;
 use IPub\DoctrineCrud\Mapping\Annotation as IPubDoctrine;
 use IPub\DoctrineTimestampable;
@@ -112,15 +111,6 @@ class Account implements IAccount
 	 * @ORM\Column(type="string_enum", name="account_type", nullable=false, options={"default": "device"})
 	 */
 	private $type;
-
-	/**
-	 * @var DevicesModuleEntities\Devices\INetworkDevice|null
-	 *
-	 * @IPubDoctrine\Crud(is="writable")
-	 * @ORM\OneToOne(targetEntity="FastyBird\DevicesModule\Entities\Devices\NetworkDevice")
-	 * @ORM\JoinColumn(name="device_id", referencedColumnName="device_id", onDelete="CASCADE")
-	 */
-	private ?DevicesModuleEntities\Devices\INetworkDevice $device = null;
 
 	/**
 	 * @param string $username
@@ -284,22 +274,6 @@ class Account implements IAccount
 
 			$this->subscribeAcl[] = $rule;
 		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getDevice(): ?DevicesModuleEntities\Devices\INetworkDevice
-	{
-		return $this->device;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function setDevice(?DevicesModuleEntities\Devices\INetworkDevice $device): void
-	{
-		$this->device = $device;
 	}
 
 }
