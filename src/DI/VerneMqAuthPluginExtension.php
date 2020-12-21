@@ -66,11 +66,11 @@ class VerneMqAuthPluginExtension extends DI\CompilerExtension implements Transla
 			->setType(Commands\Accounts\CreateCommand::class);
 
 		// Database repositories
-		$builder->addDefinition(null)
+		$builder->addDefinition($this->prefix('model.accountRepository'))
 			->setType(Models\Accounts\AccountRepository::class);
 
 		// Database managers
-		$builder->addDefinition($this->prefix('doctrine.accountsManager'))
+		$builder->addDefinition($this->prefix('model.accountsManager'))
 			->setType(Models\Accounts\AccountsManager::class)
 			->setArgument('entityCrud', '__placeholder__');
 	}
@@ -114,7 +114,7 @@ class VerneMqAuthPluginExtension extends DI\CompilerExtension implements Transla
 
 		$entityFactoryServiceName = $builder->getByType(DoctrineCrud\Crud\IEntityCrudFactory::class, true);
 
-		$accountsManagerService = $class->getMethod('createService' . ucfirst($this->name) . '__doctrine__accountsManager');
+		$accountsManagerService = $class->getMethod('createService' . ucfirst($this->name) . '__model__accountsManager');
 		$accountsManagerService->setBody('return new ' . Models\Accounts\AccountsManager::class . '($this->getService(\'' . $entityFactoryServiceName . '\')->create(\'' . Entities\Accounts\Account::class . '\'));');
 	}
 
