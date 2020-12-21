@@ -37,7 +37,3 @@ create:
             wasNotCreated	: "Account could not be created. Error was logged."
 
     success: "Account \"%name%\" was successfully saved."
-
-sync:
-    validation:
-        notFinished	: "Synchronisation could not be finished: %s"
