@@ -1,6 +1,6 @@
 # FastyBird Verne MQ auth plugin
 
-[![Build Status](https://badgen.net/github/checks/FastyBird/vernemq-auth-plugin/master?cache=300&style=flast-square)](https://travis-ci.com/FastyBird/vernemq-auth-plugin)
+[![Build Status](https://badgen.net/github/checks/FastyBird/vernemq-auth-plugin/master?cache=300&style=flast-square)](https://github.com/FastyBird/vernemq-auth-plugin/actions)
 [![Code coverage](https://badgen.net/coveralls/c/github/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)](https://coveralls.io/r/FastyBird/vernemq-auth-plugin)
 ![PHP](https://badgen.net/packagist/php/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)
 [![Licence](https://badgen.net/packagist/license/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
