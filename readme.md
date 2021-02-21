@@ -1,11 +1,11 @@
 # FastyBird Verne MQ auth plugin
 
-[![Build Status](https://img.shields.io/travis/com/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://travis-ci.com/FastyBird/vernemq-auth-plugin)
-[![Code coverage](https://img.shields.io/coveralls/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://coveralls.io/r/FastyBird/vernemq-auth-plugin)
-![PHP](https://img.shields.io/packagist/php-v/fastybird/vernemq-auth-plugin?style=flat-square)
-[![Licence](https://img.shields.io/packagist/l/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
-[![Downloads total](https://img.shields.io/packagist/dt/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
-[![Latest stable](https://img.shields.io/packagist/v/FastyBird/vernemq-auth-plugin.svg?style=flat-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
+[![Build Status](https://badgen.net/github/checks/FastyBird/vernemq-auth-plugin/master?cache=300&style=flast-square)](https://travis-ci.com/FastyBird/vernemq-auth-plugin)
+[![Code coverage](https://badgen.net/coveralls/c/github/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)](https://coveralls.io/r/FastyBird/vernemq-auth-plugin)
+![PHP](https://badgen.net/packagist/php/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)
+[![Licence](https://badgen.net/packagist/license/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
+[![Downloads total](https://badgen.net/packagist/dt/FastyBird/vernemq-auth-plugin?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
+[![Latest stable](https://badgen.net/packagist/v/FastyBird/vernemq-auth-plugin/latest?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/vernemq-auth-plugin)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
 ## What is FastyBird Verne MQ auth plugin?
